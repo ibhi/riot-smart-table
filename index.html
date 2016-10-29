@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Riotjs Smart Table</title>
+</head>
+<body>
+	<!-- <my-tag></my-tag> -->
+	<smart-table></smart-table>
+
+	<script src="//cdn.jsdelivr.net/riot/2.6/riot.min.js"></script>
+	<script src="all-tags.js"></script>
+	<script>
+		var data = [{
+			FirstName: 'Iron',
+			LastName: 'Man',
+			Age: '35'
+		}, {
+			FirstName: 'Captain',
+			LastName: 'America',
+			Age: '30'
+		}, {
+			FirstName: 'Eagle',
+			LastName: 'Eye',
+			Age: '32'
+		}];
+		riot.mount('smart-table', {data: data});
+	</script>
+</body>
+</html>
