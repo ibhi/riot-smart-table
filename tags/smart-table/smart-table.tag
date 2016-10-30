@@ -3,7 +3,7 @@
   <table>
     <thead>
       <tr>
-        <th each={ header, i in headers } onclick="{ colSort }" class = "{ asc: parent.sortState[i].order === 'asc' }">{ header }</th>
+        <th each={ header, i in headers } onclick="{ colSort }" class = "{ asc: parent.sortState[i].order === 'asc' }">{ options.columnDefs[i].title || header }</th>
       </tr>
     </thead>
     <tbody>
@@ -20,8 +20,17 @@
     this.headers = Object.keys(this.data[0]);
 
     this.options = {
+      globalSearch: true,
       columnDefs: [{
-        target: 0,
+        title: 'First Name',
+        sortable: true,
+        type: 'text'
+      }, {
+        title: 'Last Name',
+        sortable: true,
+        type: 'text'
+      }, {
+        title: 'Age',
         sortable: true,
         type: 'text'
       }]

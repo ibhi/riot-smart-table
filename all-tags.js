@@ -1,14 +1,23 @@
 riot.tag2('my-tag', '<h3>Tag layout</h3> <inner-tag></inner-tag>', '', '', function(opts) {
 });
-riot.tag2('smart-table', '<input type="text" id="global-search" onkeyup="{search}"> <table> <thead> <tr> <th each="{header, i in headers}" onclick="{colSort}" class="{asc: parent.sortState[i].order === \'asc\'}">{header}</th> </tr> </thead> <tbody> <tr each="{row in filteredData}"> <td each="{key, value in row}"> {value}</td> </tr> </tbody> </table>', '', '', function(opts) {
+riot.tag2('smart-table', '<input type="text" id="global-search" onkeyup="{search}"> <table> <thead> <tr> <th each="{header, i in headers}" onclick="{colSort}" class="{asc: parent.sortState[i].order === \'asc\'}">{options.columnDefs[i].title || header}</th> </tr> </thead> <tbody> <tr each="{row in filteredData}"> <td each="{key, value in row}"> {value}</td> </tr> </tbody> </table>', '', '', function(opts) {
     var self = this;
     this.data = opts.data;
     console.log(this.data);
     this.headers = Object.keys(this.data[0]);
 
     this.options = {
+      globalSearch: true,
       columnDefs: [{
-        target: 0,
+        title: 'First Name',
+        sortable: true,
+        type: 'text'
+      }, {
+        title: 'Last Name',
+        sortable: true,
+        type: 'text'
+      }, {
+        title: 'Age',
         sortable: true,
         type: 'text'
       }]
